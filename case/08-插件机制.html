@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/jquery-3.4.1.js"></script>
+    <script>
+        $.fn.extend({
+            //所有jQuery对象可以调用此对象
+            check: function () {
+                this.prop("checked", true);
+            }, uncheck: function () {
+
+                this.prop("checked", false);
+            }
+        });
+        $.extend({
+            max: function (a, b) {
+                if (a > b)
+                    return a;
+                else return b;
+
+            },
+            min: function (a,b) {
+                if (a > b)
+                    return b;
+                else return a;
+            }
+        });
+        $(function () {
+            // $("input[type='checkbox']")
+            $("#btn-check").click(function () {
+                $("input[type='checkbox']").check();
+            });
+            $("#btn-uncheck").click(function () {
+                $("input[type='checkbox']").uncheck();
+            });
+            alert($.max(10, 29))
+           alert($.min(3, 7))
+        })
+
+    </script>
+</head>
+<body>
+<input id="btn-check" type="button" value="点击选中复选框">
+<input id="btn-uncheck" type="button" value="点击取消选中复选框"><br>
+<input type="checkbox" value="football">足球
+<input type="checkbox" value="basketball">篮球
+<input type="checkbox" value="volleyball">排球
+<input type="checkbox" value="pingpang">兵乓球
+</body>
+</html>
